@@ -3,7 +3,7 @@
 	import Cursor from '$lib/Cursor/index.svelte';
 
 	export let game;
-	export let player;
+	export let player = { ammunition: 0, score: 0 };
 
 	/**
 	 * Function used to decrease the ammunition of the player and increase his score
@@ -20,12 +20,13 @@
 	};
 
 	/**
-	 * Function used to hide an enemy
+	 * Function used to remove an enemy from html
 	 * @param enemyId
 	 */
 	async function removeEnemy(enemyId) {
+		let parent = document.querySelector('#game');
 		let div = document.querySelector('#' + enemyId);
-		div?.classList.add('remove');
+		parent?.removeChild(div);
 	}
 
 	/**
@@ -47,7 +48,7 @@
 		on:click|self={() => shoot(null)}
 	>
 		{#each game as enemy}
-			<Enemy {...enemy} onClick={() => shoot(enemy)} />
+			<Enemy {...enemy} onClick={() => shoot(enemy)} removeEnemy={(id) => removeEnemy(id)} />
 		{/each}
 
 		<Cursor offsetTop={48} />

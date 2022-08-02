@@ -17,7 +17,7 @@
 </script>
 
 <span
-	class="h-[{height}px] w-[{width}px] absolute pointer-events-none 
-        bg-yellow-400"
-	style="top:{top}px;left:{left}px;"
+	class="absolute pointer-events-none z-20
+        rounded-full bg-yellow-400"
+	style="height:{height}px;width:{width}px;top:{top}px;left:{left}px;"
 />
