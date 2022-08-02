@@ -5,7 +5,8 @@ module.exports = {
 		extend: {
 			colors: {
 				'c-black': '#0D0D0D',
-				'c-dark-gray': '#262626'
+				'c-dark-gray': '#262626',
+				'c-white': '#F2F2F2'
 			}
 		}
 	},

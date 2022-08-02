@@ -24,7 +24,9 @@
 {#await setCoordinates() then _}
 	<div
 		{id}
-		class="animateEnemy absolute {remove ? 'hidden' : 'block'}"
+		class="animateEnemy absolute bg-c-white
+			{remove ? 'hidden' : 'block'}
+			{name == 'circle' ? 'rounded-full' : ''}"
 		style="height:{height}px;width:{width}px;
         left:{coordinates.xA}px;top:{coordinates.yA}px;
         --xB:{coordinates.translationX}px;--yB:{coordinates.translationY}px;
@@ -35,7 +37,6 @@
 
 <style>
 	.animateEnemy {
-		background-color: white;
 		animation: movement var(--speed) linear forwards;
 		animation-delay: var(--delay);
 	}

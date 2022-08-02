@@ -1,10 +1,9 @@
 <script>
-	import { gameData } from '$lib/data/game';
-	import { playerData } from '$lib/data/player';
 	import Enemy from '$lib/Enemy/index.svelte';
+	import Cursor from '$lib/Cursor/index.svelte';
 
-	let game = gameData;
-	let player = playerData;
+	export let game;
+	export let player;
 
 	/**
 	 * Function used to decrease the ammunition of the player and increase his score
@@ -40,27 +39,23 @@
 	};
 </script>
 
-<div
-	class="h-[3rem] w-full 
-		text-white bg-c-dark-gray"
->
-	score : {player.score}
-</div>
+<main class="no-cursor">
+	<div
+		id="game"
+		class="relative h-[calc(100vh-6rem)] w-full m-auto
+        hide-cursor overflow-hidden bg-c-black"
+		on:click|self={() => shoot(null)}
+	>
+		{#each game as enemy}
+			<Enemy {...enemy} onClick={() => shoot(enemy)} />
+		{/each}
 
-<div
-	id="game"
-	class="relative h-[calc(100vh-6rem)] w-full m-auto
-        overflow-hidden bg-c-black"
-	on:click|self={() => shoot(null)}
->
-	{#each game as enemy}
-		<Enemy {...enemy} onClick={() => shoot(enemy)} />
-	{/each}
-</div>
+		<Cursor offsetTop={48} />
+	</div>
+</main>
 
-<div
-	class="h-[3rem] w-full
-		text-white bg-c-dark-gray"
->
-	ammunition : {player.ammunition}
-</div>
+<style>
+	.no-cursor {
+		cursor: none;
+	}
+</style>
