@@ -46,5 +46,6 @@ export const generateCoordinatesAB = (height, width) => {
 	let translationX = xB - xA;
 	let translationY = yB - yA;
 
+	console.log(xA, yA, translationX, translationY);
 	return { xA, yA, translationX, translationY };
 };

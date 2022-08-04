@@ -53,20 +53,18 @@
 	};
 </script>
 
-<main class="no-cursor">
-	<div
-		id="game"
-		class="relative h-[calc(100vh-6rem)] w-full m-auto
+<div
+	id="game"
+	class="relative h-[calc(100vh-6rem)] w-full m-auto no-cursor
         hide-cursor overflow-hidden bg-c-black"
-		on:click|self={() => shoot(null)}
-	>
-		{#each game as enemy}
-			<Enemy {...enemy} onClick={() => shoot(enemy)} removeEnemy={(id) => removeEnemy(id)} />
-		{/each}
+	on:click|self={() => shoot(null)}
+>
+	{#each game as enemy}
+		<Enemy {...enemy} onClick={() => shoot(enemy)} removeEnemy={(id) => removeEnemy(id)} />
+	{/each}
 
-		<Cursor offsetTop={48} ammunition={player.ammunition} />
-	</div>
-</main>
+	<Cursor offsetTop={48} ammunition={player.ammunition} />
+</div>
 
 <style>
 	.no-cursor {

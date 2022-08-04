@@ -1,5 +1,6 @@
 <script>
 	import { generateCoordinatesAB } from '$lib/data/generateCoordinates';
+	import { onMount } from 'svelte';
 
 	export let id = '';
 	export let name = '';
@@ -26,25 +27,27 @@
 			if (!shot) removeEnemy(id);
 		}, (delay + speed) * 1000);
 	}
+
+	onMount(() => {
+		setCoordinates();
+	});
 </script>
 
-{#await setCoordinates() then _}
-	{#if visible}
-		<div
-			{id}
-			class="animateEnemy absolute bg-c-white z-10
+{#if visible}
+	<div
+		{id}
+		class="animateEnemy absolute bg-c-white z-10
 			{name == 'circle' ? 'rounded-full' : ''}"
-			style="height:{height}px;width:{width}px;
+		style="height:{height}px;width:{width}px;
 				left:{coordinates.xA}px;top:{coordinates.yA}px;
 				--xB:{coordinates.translationX}px;--yB:{coordinates.translationY}px;
 				--speed:{speed}s;"
-			on:click|self={() => {
-				onClick();
-				shot = true;
-			}}
-		/>
-	{/if}
-{/await}
+		on:click|self={() => {
+			onClick();
+			shot = true;
+		}}
+	/>
+{/if}
 
 <style>
 	.animateEnemy {
