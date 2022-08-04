@@ -13,10 +13,15 @@
 	export let removeEnemy = () => {};
 
 	let shot = false;
+	let visible = false;
 	let coordinates = { xA: 0, yA: 0, translationX: 0, translationY: 0 };
 
 	async function setCoordinates() {
 		coordinates = generateCoordinatesAB(height, width);
+
+		setTimeout(() => {
+			visible = true;
+		}, delay * 1000);
 
 		setTimeout(() => {
 			if (!shot) removeEnemy(id);
@@ -25,25 +30,26 @@
 </script>
 
 {#await setCoordinates() then _}
-	<div
-		{id}
-		class="animateEnemy absolute bg-c-white z-10
+	{#if visible}
+		<div
+			{id}
+			class="animateEnemy absolute bg-c-white z-10
 			{name == 'circle' ? 'rounded-full' : ''}"
-		style="height:{height}px;width:{width}px;
-        left:{coordinates.xA}px;top:{coordinates.yA}px;
-        --xB:{coordinates.translationX}px;--yB:{coordinates.translationY}px;
-        --speed:{speed}s;--delay:{delay}s;"
-		on:click|self={() => {
-			onClick();
-			shot = true;
-		}}
-	/>
+			style="height:{height}px;width:{width}px;
+				left:{coordinates.xA}px;top:{coordinates.yA}px;
+				--xB:{coordinates.translationX}px;--yB:{coordinates.translationY}px;
+				--speed:{speed}s;"
+			on:click|self={() => {
+				onClick();
+				shot = true;
+			}}
+		/>
+	{/if}
 {/await}
 
 <style>
 	.animateEnemy {
 		animation: movement var(--speed) linear forwards;
-		animation-delay: var(--delay);
 	}
 
 	@keyframes movement {

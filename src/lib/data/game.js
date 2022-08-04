@@ -1,36 +1,36 @@
 export const gameData = [
 	{
-		id: 'azeazdksqdqsd',
+		id: 'square_1',
 		name: 'square',
-		score: 10,
+		score: 5,
 		speed: 10,
 		delay: 2,
 		height: 75,
 		width: 75
 	},
 	{
-		id: 'dkqsdnqskdqsl',
+		id: 'circle_1',
 		name: 'circle',
-		score: 15,
+		score: 5,
 		speed: 9,
 		delay: 2,
 		height: 60,
 		width: 60
 	},
 	{
-		id: 'qsdkqsldkcp',
+		id: 'circle_2',
 		name: 'circle',
-		score: 50,
+		score: 10,
 		speed: 8,
 		delay: 2,
 		height: 50,
 		width: 50
 	},
 	{
-		id: 'zaoazezaeklaz',
+		id: 'square_2',
 		name: 'square',
-		score: 50,
-		speed: 8,
+		score: 15,
+		speed: 6,
 		delay: 1,
 		height: 30,
 		width: 30
