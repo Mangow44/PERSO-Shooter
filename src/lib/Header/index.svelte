@@ -3,8 +3,8 @@
 </script>
 
 <div
-	class="h-[3rem] w-full 
+	class="flex h-[3rem] w-full 
 		text-c-white bg-c-dark-gray"
 >
-	score : {player.score}
+	<h2 class="m-auto uppercase font-franchise text-4xl">score : {player.score}</h2>
 </div>

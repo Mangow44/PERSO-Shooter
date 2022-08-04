@@ -1,9 +1,8 @@
 <script>
 	import { generateCoordinatesAB } from '$lib/data/generateCoordinates';
-	import { onMount } from 'svelte';
 
 	export let id = '';
-	export let name = ''; // square ou circle et mettre un rounded full dessus
+	export let name = '';
 	export let score = 0;
 	export let speed = 0;
 	export let delay = 0;
@@ -49,6 +48,7 @@
 
 <style>
 	.animateEnemy {
+		box-shadow: 0 0 10px 5px rgb(125, 121, 121);
 		animation: movement var(--speed) linear forwards;
 	}
 

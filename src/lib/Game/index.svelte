@@ -10,11 +10,23 @@
 	 * @param enemy
 	 */
 	const shoot = (enemy) => {
-		if (player.ammunition == 0) return;
-		if (player.ammunition > 0) player.ammunition--;
+		if (player.ammunition == 0) {
+			let audioNoAmmo = new Audio('/sounds/no_ammo.wav');
+			audioNoAmmo.volume = 0.5;
+			audioNoAmmo.play();
+			return;
+		}
+
+		new Audio('/sounds/shoot.wav').play();
+		player.ammunition--;
+
 		if (player.ammunition == 0) reload(3000);
 
 		if (enemy == undefined) return;
+
+		let audioDestroy = new Audio('/sounds/destroy.wav');
+		audioDestroy.volume = 0.3;
+		audioDestroy.play();
 		player.score += game[game.indexOf(enemy)].score;
 		removeEnemy(enemy.id);
 	};
@@ -36,6 +48,7 @@
 	const reload = (duration) => {
 		setTimeout(() => {
 			player.ammunition = 10;
+			new Audio('/sounds/reload.wav').play();
 		}, duration);
 	};
 </script>
@@ -51,7 +64,7 @@
 			<Enemy {...enemy} onClick={() => shoot(enemy)} removeEnemy={(id) => removeEnemy(id)} />
 		{/each}
 
-		<Cursor offsetTop={48} />
+		<Cursor offsetTop={48} ammunition={player.ammunition} />
 	</div>
 </main>
 

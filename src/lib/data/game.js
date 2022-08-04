@@ -34,5 +34,41 @@ export const gameData = [
 		delay: 1,
 		height: 30,
 		width: 30
+	},
+	{
+		id: 'circle_3',
+		name: 'circle',
+		score: 20,
+		speed: 4,
+		delay: 4,
+		height: 20,
+		width: 20
+	},
+	{
+		id: 'circle_4',
+		name: 'circle',
+		score: 20,
+		speed: 4,
+		delay: 4,
+		height: 20,
+		width: 20
+	},
+	{
+		id: 'circle_5',
+		name: 'circle',
+		score: 20,
+		speed: 4,
+		delay: 4,
+		height: 20,
+		width: 20
+	},
+	{
+		id: 'square_3',
+		name: 'square',
+		score: 10,
+		speed: 7,
+		delay: 1,
+		height: 40,
+		width: 40
 	}
 ];
