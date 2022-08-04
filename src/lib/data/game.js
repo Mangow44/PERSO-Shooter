@@ -67,8 +67,26 @@ export const gameData = [
 		name: 'square',
 		score: 10,
 		speed: 7,
-		delay: 1,
+		delay: 4,
 		height: 40,
 		width: 40
+	},
+	{
+		id: 'square_4',
+		name: 'square',
+		score: 15,
+		speed: 6,
+		delay: 5,
+		height: 30,
+		width: 30
+	},
+	{
+		id: 'square_5',
+		name: 'square',
+		score: 15,
+		speed: 6,
+		delay: 5,
+		height: 30,
+		width: 30
 	}
 ];

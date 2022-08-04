@@ -1,6 +1,7 @@
 <script>
 	import Enemy from '$lib/Enemy/index.svelte';
 	import Cursor from '$lib/Cursor/index.svelte';
+	import { src_url_equal } from 'svelte/internal';
 
 	export let game;
 	export let player = { ammunition: 0, score: 0 };
@@ -11,22 +12,18 @@
 	 */
 	const shoot = (enemy) => {
 		if (player.ammunition == 0) {
-			let audioNoAmmo = new Audio('/sounds/no_ammo.wav');
-			audioNoAmmo.volume = 0.5;
-			audioNoAmmo.play();
+			createAudio('/sounds/no_ammo.wav', 0.5);
 			return;
 		}
 
-		new Audio('/sounds/shoot.wav').play();
+		createAudio('/sounds/shoot.wav', 1);
 		player.ammunition--;
 
 		if (player.ammunition == 0) reload(3000);
 
 		if (enemy == undefined) return;
 
-		let audioDestroy = new Audio('/sounds/destroy.wav');
-		audioDestroy.volume = 0.3;
-		audioDestroy.play();
+		createAudio('/sounds/destroy.wav', 0.3);
 		player.score += game[game.indexOf(enemy)].score;
 		removeEnemy(enemy.id);
 	};
@@ -50,6 +47,17 @@
 			player.ammunition = 10;
 			new Audio('/sounds/reload.wav').play();
 		}, duration);
+	};
+
+	/**
+	 * Function to create a custom audio
+	 * @param src
+	 * @param volume
+	 */
+	const createAudio = (src, volume) => {
+		let audio = new Audio(src);
+		audio.volume = volume;
+		audio.play();
 	};
 </script>
 
