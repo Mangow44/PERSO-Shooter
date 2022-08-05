@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 
 	export let offsetTop = 0;
-	export let ammunition = 0;
 
 	let top = -20;
 	let left = -20;

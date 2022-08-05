@@ -16,8 +16,9 @@
 			return;
 		}
 
-		createAudio('/sounds/shoot.wav', 1);
+
 		player.ammunition--;
+		createAudio('/sounds/shoot.wav', 1);
 
 		if (player.ammunition == 0) reload(3000);
 
@@ -45,7 +46,7 @@
 	const reload = (duration) => {
 		setTimeout(() => {
 			player.ammunition = 10;
-			new Audio('/sounds/reload.wav').play();
+			createAudio('/sounds/reload.wav', 1);
 		}, duration);
 	};
 
@@ -55,8 +56,9 @@
 	 * @param volume
 	 */
 	const createAudio = (src, volume) => {
-		let audio = new Audio(src);
+		var audio = new Audio(src);
 		audio.volume = volume;
+		console.log(audio.volume);
 		audio.play();
 	};
 </script>
@@ -71,7 +73,7 @@
 		<Enemy {...enemy} onClick={() => shoot(enemy)} removeEnemy={(id) => removeEnemy(id)} />
 	{/each}
 
-	<Cursor offsetTop={48} ammunition={player.ammunition} />
+	<Cursor offsetTop={48} />
 </div>
 
 <style>
