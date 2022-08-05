@@ -1,7 +1,6 @@
 <script>
 	import Enemy from '$lib/Enemy/index.svelte';
 	import Cursor from '$lib/Cursor/index.svelte';
-	import { src_url_equal } from 'svelte/internal';
 
 	export let game;
 	export let player = { ammunition: 0, score: 0 };
