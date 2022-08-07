@@ -9,14 +9,15 @@
 	let width = 10;
 
 	onMount(() => {
+		const game = document.querySelector('#game');
 		const cursor = document.querySelector('#cursor');
 
-		window.addEventListener('mousemove', (event) => {
+		game.addEventListener('mousemove', (event) => {
 			left = event.pageX - width / 2;
 			top = event.pageY - height / 2 - offsetTop;
 		});
 
-		window.addEventListener('click', () => {
+		game.addEventListener('click', () => {
 			cursor?.classList.toggle('shoot');
 		});
 

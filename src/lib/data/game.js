@@ -1,3 +1,5 @@
+// gérer la vitesse en fonction de la taille de l'écran
+
 export const gameData = [
 	{
 		id: 'square_1',

@@ -36,6 +36,7 @@
 {#if visible}
 	<div
 		{id}
+		draggable="false"
 		class="animateEnemy absolute bg-c-white z-10
 			{name == 'circle' ? 'rounded-full' : ''}"
 		style="height:{height}px;width:{width}px;
