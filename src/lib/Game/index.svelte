@@ -56,7 +56,6 @@
 	const createAudio = (src, volume) => {
 		var audio = new Audio(src);
 		audio.volume = volume;
-		console.log(audio.volume);
 		audio.play();
 	};
 </script>
@@ -71,7 +70,7 @@
 		<Enemy {...enemy} onClick={() => shoot(enemy)} removeEnemy={(id) => removeEnemy(id)} />
 	{/each}
 
-	<Cursor offsetTop={48} />
+	<Cursor />
 </div>
 
 <style>

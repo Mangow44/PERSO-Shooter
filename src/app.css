@@ -13,12 +13,12 @@
 
 @keyframes shoot {
 	0% {
-		scale: 1;
+		background-color: yellow;
 	}
 	50% {
-		scale: 0.7;
+		background-color: red;
 	}
 	100% {
-		scale: 1;
+		background-color: yellow;
 	}
 }
