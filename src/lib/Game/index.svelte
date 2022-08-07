@@ -15,7 +15,6 @@
 			return;
 		}
 
-
 		player.ammunition--;
 		createAudio('/sounds/shoot.wav', 1);
 

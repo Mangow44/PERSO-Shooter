@@ -15,6 +15,8 @@
 		game.addEventListener('mousemove', (event) => {
 			left = event.pageX - width / 2;
 			top = event.pageY - height / 2 - offsetTop;
+
+			cursor.style.transform = `translate(${left}, ${top})`;
 		});
 
 		game.addEventListener('click', () => {
