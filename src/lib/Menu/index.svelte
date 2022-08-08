@@ -1,4 +1,6 @@
 <script>
+	import Button from '$lib/utils/Button.svelte';
+
 	import { goto } from '$app/navigation';
 </script>
 
@@ -7,12 +9,5 @@
 	class="flex h-screen w-full m-auto
          overflow-hidden bg-c-black"
 >
-	<button
-		class="m-auto h-12 w-24 
-        bg-white uppercase font-franchise text-2xl
-        hover:scale-110 cursor-pointer"
-		on:click={() => goto('/game')}
-	>
-		play
-	</button>
+	<Button text={'play'} foo={() => goto('/game')} />
 </div>

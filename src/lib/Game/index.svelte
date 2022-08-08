@@ -1,8 +1,9 @@
 <script>
 	import Enemy from '$lib/Enemy/index.svelte';
 	import Cursor from '$lib/Cursor/index.svelte';
+	import GameMenu from '$lib/Game/GameMenu/index.svelte';
 
-	export let game;
+	export let game = [];
 	export let player = { ammunition: 0, score: 0 };
 
 	/**
@@ -71,6 +72,8 @@
 	{/each}
 
 	<Cursor />
+
+	<GameMenu {player} {game} />
 </div>
 
 <style>
