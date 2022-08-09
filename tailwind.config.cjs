@@ -4,7 +4,8 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				franchise: ['Franchise', 'sans-serif']
+				franchise: ['Franchise', 'sans-serif'],
+				retrogaming: ['RetroGaming', 'sans-serif']
 			},
 			colors: {
 				'c-black': '#0D0D0D',

@@ -5,9 +5,16 @@
 
 <button
 	class="m-auto h-24 w-48
-        bg-white uppercase font-franchise text-5xl
-        hover:scale-110 cursor-pointer"
+        bg-white uppercase font-retrogaming text-5xl
+        hover:scale-110 cursor-pointer
+		custom-box-shadow"
 	on:click={() => foo()}
 >
 	{text}
 </button>
+
+<style>
+	.custom-box-shadow {
+		box-shadow: 0px 0px 15px 2px white;
+	}
+</style>
