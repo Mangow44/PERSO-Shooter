@@ -56,6 +56,7 @@
 	 */
 	const createAudio = (src, volume) => {
 		var audio = new Audio(src);
+		audio.preload = 'auto';
 		audio.volume = volume;
 		audio.play();
 	};

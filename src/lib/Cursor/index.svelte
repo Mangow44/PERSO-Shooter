@@ -7,6 +7,8 @@
 	let width = 10;
 
 	onMount(() => {
+		if (/Mobi|Android/i.test(navigator.userAgent)) return;
+
 		const game = document.querySelector('#game');
 		const cursor = document.querySelector('#cursor');
 
