@@ -1,8 +1,8 @@
 export const generateCoordinatesAB = (height, width) => {
 	const game = document.querySelector('#game');
 
-	let gameHeight = game?.clientHeight;
-	let gameWidth = game?.clientWidth;
+	let gameHeight = window.innerHeight;
+	let gameWidth = window.innerWidth;
 
 	let direction = Math.floor(Math.random() * 4);
 	let xA = 0;
