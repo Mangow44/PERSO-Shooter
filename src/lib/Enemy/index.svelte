@@ -43,7 +43,8 @@
 				left:{coordinates.xA}px;top:{coordinates.yA}px;
 				--xB:{coordinates.translationX}px;--yB:{coordinates.translationY}px;
 				--speed:{speed}s;"
-		on:click|self={() => {
+		on:click|self={(e) => {
+			e.preventDefault();
 			onClick();
 			shot = true;
 		}}
@@ -52,7 +53,7 @@
 
 <style>
 	.animateEnemy {
-		box-shadow: 0 0 10px 5px rgb(125, 121, 121);
+		will-change: auto;
 		animation: movement var(--speed) linear forwards;
 	}
 
