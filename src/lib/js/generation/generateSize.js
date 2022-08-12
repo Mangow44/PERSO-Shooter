@@ -1,20 +1,16 @@
-export const generateSize = () => {
-	let size = Math.floor(Math.random() * (81 - 25)) + 25;
-	let screenSize = window.innerHeight * window.innerWidth;
+export const generateSize = (screenSize) => {
+	let size = Math.floor(Math.random() * (51 - 25)) + 25;
 	let ratio = 1;
 
-	if (screenSize >= 55000 && screenSize < 1000000) {
-		ratio = 1.3;
+	if (screenSize >= 500000 && screenSize < 1000000) {
+		ratio = 1.4;
 	}
 	if (screenSize >= 1000000) {
-		ratio = 1.6;
+		ratio = 1.9;
 	}
 
 	let height = size * ratio;
 	let width = size * ratio;
 
-	console.log(screenSize);
-
-	console.log(ratio);
 	return { height, width };
 };

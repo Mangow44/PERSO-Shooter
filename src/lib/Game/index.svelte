@@ -19,7 +19,7 @@
 		player.ammunition--;
 		createAudio('/sounds/shoot.wav', 1);
 
-		if (player.ammunition == 0) reload(3000);
+		if (player.ammunition == 0) reload(1500);
 
 		if (enemy == undefined) return;
 

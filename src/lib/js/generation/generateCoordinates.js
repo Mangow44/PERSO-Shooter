@@ -1,7 +1,6 @@
 export const generateCoordinatesAB = (height, width) => {
-	const game = document.querySelector('#game');
-
-	let gameHeight = window.innerHeight;
+	// 3 rem of header + 3 rem of footer = 96px
+	let gameHeight = window.innerHeight - 96;
 	let gameWidth = window.innerWidth;
 
 	let direction = Math.floor(Math.random() * 4);
