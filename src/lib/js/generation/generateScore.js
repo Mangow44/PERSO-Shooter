@@ -14,6 +14,5 @@ export const generateScore = (speed, size) => {
 		score = 5;
 	}
 
-	console.log(size.height, speed, score);
 	return score;
 };

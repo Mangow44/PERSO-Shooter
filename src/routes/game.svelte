@@ -9,6 +9,7 @@
 
 	let game = gameData;
 	let player = playerData;
+	let combo = 0;
 
 	const loadGameData = async () => {
 		onMount(() => {
@@ -18,7 +19,7 @@
 </script>
 
 {#await loadGameData() then _}
-	<Header bind:player />
-	<Game bind:game bind:player />
+	<Header bind:player bind:combo />
+	<Game bind:game bind:player bind:combo />
 	<Footer bind:player />
 {/await}

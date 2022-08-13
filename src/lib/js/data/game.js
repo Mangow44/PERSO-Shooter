@@ -50,5 +50,45 @@ export const gameData = [
 		id: 'square_5',
 		name: 'square',
 		delay: 5
+	},
+	{
+		id: 'circle_6',
+		name: 'circle',
+		delay: 7
+	},
+	{
+		id: 'square_6',
+		name: 'square',
+		delay: 7
+	},
+	{
+		id: 'circle_7',
+		name: 'circle',
+		delay: 7
+	},
+	{
+		id: 'circle_8',
+		name: 'circle',
+		delay: 9
+	},
+	{
+		id: 'circle_9',
+		name: 'circle',
+		delay: 9
+	},
+	{
+		id: 'square_7',
+		name: 'square',
+		delay: 10
+	},
+	{
+		id: 'square_8',
+		name: 'square',
+		delay: 10
+	},
+	{
+		id: 'square_9',
+		name: 'square',
+		delay: 10
 	}
 ];

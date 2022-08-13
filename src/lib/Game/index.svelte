@@ -5,6 +5,7 @@
 
 	export let game = [];
 	export let player = { ammunition: 0, score: 0 };
+	export let combo = 0;
 
 	/**
 	 * Function used to decrease the ammunition of the player and increase his score
@@ -21,10 +22,14 @@
 
 		if (player.ammunition == 0) reload(1500);
 
-		if (enemy == undefined) return;
+		if (enemy == undefined) {
+			combo = 0;
+			return;
+		}
 
 		createAudio('/sounds/destroy.wav', 0.3);
-		player.score += game[game.indexOf(enemy)].score;
+		combo++;
+		player.score += game[game.indexOf(enemy)].score * combo;
 		removeEnemy(enemy.id);
 	};
 
