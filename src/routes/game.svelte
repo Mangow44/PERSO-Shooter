@@ -5,6 +5,7 @@
 	import { generateGameData } from '$lib/js/generation/generateGameData';
 	import Header from '$lib/Header/index.svelte';
 	import Game from '$lib/Game/index.svelte';
+	import GameMenu from '$lib/GameMenu/index.svelte';
 	import Footer from '$lib/Footer/index.svelte';
 
 	let game = gameData;
@@ -13,13 +14,21 @@
 
 	const loadGameData = async () => {
 		onMount(() => {
-			generateGameData(game);
+			game = generateGameData(game);
 		});
+	};
+
+	const resetGame = () => {
+		game = generateGameData(game);
+		player = { score: 0, ammunition: 10 };
+		combo = 0;
 	};
 </script>
 
 {#await loadGameData() then _}
-	<Header bind:player bind:combo />
-	<Game bind:game bind:player bind:combo />
-	<Footer bind:player />
+	<Header {player} {combo} />
+	<Game {game} bind:player bind:combo>
+		<GameMenu {game} foo={() => resetGame()} />
+	</Game>
+	<Footer {player} />
 {/await}

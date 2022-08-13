@@ -6,10 +6,10 @@
 	export let delay = 0;
 	export let size = { height: 0, width: 0 };
 	export let coordinates = { xA: 0, yA: 0, translationX: 0, translationY: 0 };
-	export let onClick = () => {};
-	export let removeEnemy = () => {};
+	export let onClick = () => {
+		return false;
+	};
 
-	let shot = false;
 	let visible = false;
 
 	setTimeout(() => {
@@ -17,7 +17,7 @@
 	}, delay * 1000);
 
 	setTimeout(() => {
-		if (!shot) removeEnemy(id);
+		visible = false;
 	}, (delay + speed) * 1000);
 </script>
 
@@ -33,8 +33,7 @@
 				--speed:{speed}s;"
 		on:click|self={(e) => {
 			e.preventDefault();
-			onClick();
-			shot = true;
+			visible = !onClick();
 		}}
 	/>
 {/if}

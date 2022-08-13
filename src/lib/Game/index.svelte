@@ -1,11 +1,14 @@
 <script>
 	import Enemy from '$lib/Enemy/index.svelte';
 	import Cursor from '$lib/Cursor/index.svelte';
-	import GameMenu from '$lib/Game/GameMenu/index.svelte';
 
-	export let game = [];
+	export let game = [{}];
 	export let player = { ammunition: 0, score: 0 };
 	export let combo = 0;
+
+	$: if (game) {
+		game = [...game];
+	}
 
 	/**
 	 * Function used to decrease the ammunition of the player and increase his score
@@ -24,24 +27,15 @@
 
 		if (enemy == undefined) {
 			combo = 0;
-			return;
+			return false;
 		}
 
 		createAudio('/sounds/destroy.wav', 0.3);
 		combo++;
 		player.score += game[game.indexOf(enemy)].score * combo;
-		removeEnemy(enemy.id);
-	};
 
-	/**
-	 * Function used to remove an enemy from html
-	 * @param enemyId
-	 */
-	async function removeEnemy(enemyId) {
-		let parent = document.querySelector('#game');
-		let div = document.querySelector('#' + enemyId);
-		parent?.removeChild(div);
-	}
+		return true;
+	};
 
 	/**
 	 * Cooldown to reload the gun
@@ -71,15 +65,15 @@
 	id="game"
 	class="relative h-[calc(100vh-6rem)] w-full m-auto no-cursor
         hide-cursor overflow-hidden bg-c-black"
-	on:click|self={() => shoot(null)}
+	on:click|self={() => shoot(undefined)}
 >
-	{#each game as enemy}
-		<Enemy {...enemy} onClick={() => shoot(enemy)} removeEnemy={(id) => removeEnemy(id)} />
+	{#each game as enemy (enemy.id)}
+		<Enemy {...enemy} onClick={() => shoot(enemy)} />
 	{/each}
 
-	<Cursor />
+	<slot />
 
-	<GameMenu {player} {game} />
+	<Cursor />
 </div>
 
 <style>

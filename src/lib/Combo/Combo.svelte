@@ -6,7 +6,7 @@
 		animation = true;
 		setTimeout(() => {
 			animation = false;
-		}, 500);
+		}, 300);
 	}
 </script>
 
@@ -16,7 +16,7 @@
 
 <style>
 	.shake-anim {
-		animation: shake 0.5s ease;
+		animation: shake 0.3s ease;
 	}
 
 	@keyframes shake {

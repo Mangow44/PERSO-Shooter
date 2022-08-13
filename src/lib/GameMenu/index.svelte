@@ -1,13 +1,17 @@
 <script>
 	import Button from '$lib/utils/Button.svelte';
 
-	export let player = {};
 	export let game = [];
+	export let foo = () => {};
+
+	$: if (game) {
+		setGameTimer();
+	}
 
 	let gameMenu = false;
 
 	/**
-	 * We all the enemies are gone, we show the game menu
+	 * When all the enemies are gone, we show the game menu
 	 */
 	const setGameTimer = () => {
 		let maxDuration = 0;
@@ -21,8 +25,6 @@
 			gameMenu = true;
 		}, (maxDuration + 0.5) * 1000);
 	};
-
-	setGameTimer();
 </script>
 
 {#if gameMenu}
@@ -30,6 +32,12 @@
 		class="flex absolute h-full w-full z-50
             bg-transparent"
 	>
-		<Button text={'play again'} foo={() => (window.location.href = '/game')} />
+		<Button
+			text={'play again'}
+			foo={() => {
+				gameMenu = false;
+				foo();
+			}}
+		/>
 	</div>
 {/if}
