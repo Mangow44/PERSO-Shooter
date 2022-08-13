@@ -17,7 +17,7 @@
 	const shoot = (enemy) => {
 		if (player.ammunition == 0) {
 			createAudio('/sounds/no_ammo.wav', 0.5);
-			return;
+			return false;
 		}
 
 		player.ammunition--;

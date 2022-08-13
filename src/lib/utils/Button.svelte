@@ -6,7 +6,7 @@
 <button
 	class="m-auto h-24 w-48
         bg-white uppercase font-retrogaming text-5xl
-        hover:scale-110 cursor-pointer
+        hover:scale-110 cursor-pointer transition-all
 		custom-box-shadow"
 	on:click={() => foo()}
 >
